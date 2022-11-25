@@ -12,6 +12,7 @@ public class FileHandler {
 public static void GraphFileReader(ArrayList<GraphInfo> graphInfos) throws IOException {
 
     FileReader fr=new FileReader("src/facebook_combined.txt");
+//    FileReader fr=new FileReader("src/a.txt");
     BufferedReader br=new BufferedReader(fr);
     StringTokenizer myTokens;
     String line;
