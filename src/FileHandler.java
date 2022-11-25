@@ -1,7 +1,4 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.StringTokenizer;
@@ -44,6 +41,20 @@ public static void GraphWeightWriter (ArrayList<GraphInfo> graphInfos,int bound)
                 e.printStackTrace();
             }
         }
+
+
+    public void writeToFile() throws FileNotFoundException {
+
+        PrintStream printStream = new PrintStream("Traversal.txt");
+        System.setOut(printStream);
+    }
+
+    public void writeToConsole() throws FileNotFoundException {
+
+        PrintStream consoleStream = new PrintStream(new FileOutputStream(FileDescriptor.out));
+        System.setOut(consoleStream);
+    }
+
  public static void main(String[] args) throws IOException {
     ArrayList <GraphInfo> graphInfos  = new ArrayList<>();
     GraphFileReader(graphInfos);

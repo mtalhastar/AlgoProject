@@ -78,6 +78,16 @@ class Traversal {
             traversal.addEdge(graph.get(i).source, graph.get(i).destination);
         }
 
+        handler.writeToFile();
+
+        System.out.println("Following is Breadth First Traversal (starting from vertex " + startingVertex + ")");
+        traversal.checkBFS(startingVertex);
+
+        System.out.println("\n\nFollowing is Depth First Traversal (starting from vertex " + startingVertex + ")");
+        traversal.checkDFS(startingVertex);
+
+        handler.writeToConsole();
+
         System.out.println("Following is Breadth First Traversal (starting from vertex " + startingVertex + ")");
         traversal.checkBFS(startingVertex);
 
