@@ -86,6 +86,15 @@ class Traversal {
         System.out.println("\n\nFollowing is Depth First Traversal (starting from vertex " + startingVertex + ")");
         traversal.checkDFS(startingVertex);
 
+        long start = System.nanoTime();
+        traversal.checkBFS(startingVertex);
+        long end = System.nanoTime();
+
+        double executionTime = end - start;
+        executionTime = executionTime / 1000000000;
+
+        System.out.println("\n\nExecution time: " + executionTime + " seconds");
+
         handler.writeToConsole();
 
         System.out.println("Following is Breadth First Traversal (starting from vertex " + startingVertex + ")");
