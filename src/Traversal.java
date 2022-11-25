@@ -1,8 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-class Traversal
-{
+class Traversal {
     private int V;
     private LinkedList<Integer> adj[];
 

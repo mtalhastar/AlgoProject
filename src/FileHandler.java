@@ -8,7 +8,6 @@ import java.util.StringTokenizer;
 
 public class FileHandler {
 
- // Import the IOException class to handle errors
 public static void GraphFileReader(ArrayList<GraphInfo> graphInfos) throws IOException {
 
     FileReader fr=new FileReader("src/facebook_combined.txt");
@@ -51,9 +50,9 @@ public static void GraphWeightWriter (ArrayList<GraphInfo> graphInfos,int bound)
      for (int i = 0; i <graphInfos.size() ; i++) {
          System.out.println(graphInfos.get(i).source+" "+graphInfos.get(i).destination+" "+graphInfos.get(i).weight+"\n");
      }
-    //pass your array into this function with txt file path , this function returns array filled with info inside txt
+     //pass your array into this function with txt file path , this function returns array filled with info inside txt
      // as source , destination and weight
-    //copy your absolute file paths here and only use GraphFileReader Function in your classes.
+     //copy your absolute file paths here and only use GraphFileReader Function in your classes.
 
  }
 
