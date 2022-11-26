@@ -118,7 +118,7 @@ class MST {
         for (int i = 0; i <graph2d.size() ; i++) {
             int dest =graph2d.get(i).destination;
             int src =graph2d.get(i).source;
-            graph[src][dest]=graph2d.get(i).weight;
+            graph[i][dest]=graph2d.get(i).weight;
         }
 
 
