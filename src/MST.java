@@ -9,7 +9,7 @@ import java.util.*;
 class MST {
 
     // Number of vertices in the graph
-    private static final int V = 4039;
+    private static final int V = 4032;
 
     // A utility function to find the vertex with minimum
     // key value, from the set of vertices not yet included
@@ -33,7 +33,7 @@ class MST {
     void printMST(int parent[], int graph[][])
     {
         System.out.println("Edge \tWeight");
-        for (int i = 0; i < V; i++)
+        for (int i = 1; i < V; i++)
             System.out.println(parent[i] + " - " + i + "\t"
                     + graph[i][parent[i]]);
     }
@@ -64,7 +64,7 @@ class MST {
         parent[0] = -1; // First node is always root of MST
 
         // The MST will have V vertices
-        for (int count = 0; count < V-1 ; count++) {
+        for (int count = 0; count < V - 1; count++) {
             // Pick thd minimum key vertex from the set of
             // vertices not yet included in MST
             int u = minKey(key, mstSet);
@@ -76,7 +76,7 @@ class MST {
             // adjacent vertices of the picked vertex.
             // Consider only those vertices which are not
             // yet included in MST
-            for (int v = 0; v < V-1; v++)
+            for (int v = 0; v < V; v++)
 
                 // graph[u][v] is non zero only for adjacent
                 // vertices of m mstSet[v] is false for
@@ -94,10 +94,11 @@ class MST {
         printMST(parent, graph);
     }
 
+
     public static void main(String[] args) throws IOException {
-        int [][]graph = new int[4039][4039];
-        for (int i = 0; i <4039 ; i++) {
-            for (int j = 0; j <4039 ; j++) {
+        int [][]graph = new int[4032][4032];
+        for (int i = 0; i <4032 ; i++) {
+            for (int j = 0; j <4032 ; j++) {
                 graph[i][j]=0;
             }
         }
@@ -115,10 +116,11 @@ class MST {
         fileHandler.GraphFileReader(graph2d);
 
 
-        for (int i = 0; i <graph2d.size() ; i++) {
+        for (int i = 0; i <4032 ; i++) {
             int dest =graph2d.get(i).destination;
             int src =graph2d.get(i).source;
-            graph[i][dest]=graph2d.get(i).weight;
+            graph[src][dest]=graph2d.get(i).weight;
+            graph[dest][src]=graph2d.get(i).weight;
         }
 
 
