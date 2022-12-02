@@ -1,7 +1,11 @@
 import java.io.BufferedReader;
+import java.io.FileDescriptor;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.StringTokenizer;
@@ -11,7 +15,7 @@ public class FileHandler {
  // Import the IOException class to handle errors
 public static void GraphFileReader(ArrayList<GraphInfo> graphInfos) throws IOException {
 
-    FileReader fr=new FileReader("src/facebook_combined.txt");
+    FileReader fr=new FileReader("C:\\Users\\Khursheed A.Khan\\Documents\\GitHub\\AlgoProject\\src\\facebook_combined.txt");
     BufferedReader br=new BufferedReader(fr);
     StringTokenizer myTokens;
     String line;
@@ -29,6 +33,35 @@ public static void GraphFileReader(ArrayList<GraphInfo> graphInfos) throws IOExc
     fr.close();
 }
 
+public static void writeFileDjikstra() throws FileNotFoundException {
+
+    PrintStream printStream = new PrintStream("Shortest Path from a Single Source by Djikstra.txt");
+    System.setOut(printStream);
+}
+
+public static void writeFileDiameterByDijkstra() throws FileNotFoundException {
+
+    PrintStream printStream = new PrintStream("Diameter By Dijkstra.txt");
+    System.setOut(printStream);
+}
+
+public static void writeFileBellman() throws FileNotFoundException {
+
+    PrintStream printStream = new PrintStream("Shortest Path from a Single Source by Bellman Ford.txt");
+    System.setOut(printStream);
+}
+
+public static void writeFileDiameterByBellman() throws FileNotFoundException {
+
+    PrintStream printStream = new PrintStream("Diameter By Bellman.txt");
+    System.setOut(printStream);
+}
+
+public void writeToConsole() throws FileNotFoundException {
+
+    PrintStream consoleStream = new PrintStream(new FileOutputStream(FileDescriptor.out));
+    System.setOut(consoleStream);
+}
 
 public static void GraphWeightWriter (ArrayList<GraphInfo> graphInfos,int bound) {
           Random random = new Random();
@@ -50,9 +83,6 @@ public static void GraphWeightWriter (ArrayList<GraphInfo> graphInfos,int bound)
      for (int i = 0; i <graphInfos.size() ; i++) {
          System.out.println(graphInfos.get(i).source+" "+graphInfos.get(i).destination+" "+graphInfos.get(i).weight+"\n");
      }
-    //pass your array into this function with txt file path , this function returns array filled with info inside txt
-     // as source , destination and weight
-    //copy your absolute file paths here and only use GraphFileReader Function in your classes.
 
  }
 
